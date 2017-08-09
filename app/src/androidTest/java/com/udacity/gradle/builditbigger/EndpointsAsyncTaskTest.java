@@ -1,6 +1,7 @@
 package com.udacity.gradle.builditbigger;
 
 
+import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 import android.util.Log;
 
@@ -27,8 +28,7 @@ public class EndpointsAsyncTaskTest {
     @Test
     public void testDoInBackground() throws Exception{
         try {
-            MainActivity mainActivity = new MainActivity();
-            EndpointsAsyncTask endpointsAsyncTask = new EndpointsAsyncTask(mainActivity);
+            EndpointsAsyncTask endpointsAsyncTask = new EndpointsAsyncTask(InstrumentationRegistry.getTargetContext());
             endpointsAsyncTask.execute();
             String result = endpointsAsyncTask.get(30, TimeUnit.SECONDS);
 
